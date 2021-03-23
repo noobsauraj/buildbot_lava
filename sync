@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt install wget
-MANIFEST=git://github.com/lighthouse-os/manifest.git
-BRANCH=raft
+MANIFEST=git://github.com/ProjectSakura/android.git
+BRANCH=11
 
 mkdir -p /tmp/rom
 cd /tmp/rom
@@ -13,3 +13,40 @@ git config --global user.email evanferrao@gmail.com
 
 # Sync source with -q, no need unnecessary messages, you can remove -q if want! try with -j30 first, if fails, it will try again with -j8
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all) || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
+
+
+git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_device_xiaomi_lava.git -b eleven-permissive device/xiaomi/lava && git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_kernel_xiaomi_mt6768.git -b eleven kernel/xiaomi/mt6768 && git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_vendor_xiaomi_lava.git -b eleven vendor/xiaomi/lava
+
+# mt6768 autopatcher by henloboi 202103040948 GMT+0
+
+pfwb() {
+    cd frameworks/base && wget https://github.com/PixelExperience/frameworks_base/commit/37f5a323245b0fd6269752742a2eb7aa3cae24a7.patch && git apply 37f5a323245b0fd6269752742a2eb7aa3cae24a7.patch
+}
+
+pims() {
+    cd frameworks/opt/net/ims && wget https://github.com/PixelExperience/frameworks_opt_net_ims/commit/661ae9749b5ea7959aa913f2264dc5e170c63a0a.patch && git apply 661ae9749b5ea7959aa913f2264dc5e170c63a0a.patch
+}
+
+pwifi() {
+    cd frameworks/opt/net/wifi && wget https://github.com/PixelExperience/frameworks_opt_net_wifi/commit/3bd2c14fbda9c079a4dc39ff4601ba54da589609.patch && git apply 3bd2c14fbda9c079a4dc39ff4601ba54da589609.patch
+}
+
+mtkr() {
+    git clone --depth=1 --single-branch https://github.com/PixelExperience/device_mediatek_sepolicy device/mediatek/sepolicy 
+    git clone --depth=1 --single-branch https://github.com/PixelExperience/vendor_mediatek_interfaces vendor/mediatek/interfaces 
+    git clone --depth=1 --single-branch https://github.com/PixelExperience/vendor_mediatek-opensource vendor/mediatek/opensource
+    git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_vendor_mediatek_ims vendor/mediatek/ims 
+}
+
+cd $ROOTDIR 
+pfwb
+cd $ROOTDIR 
+pims 
+cd $ROOTDIR 
+pwifi 
+cd $ROOTDIR 
+mtkr 
+cd $ROOTDIR
+
+echo "patch done !"
+
