@@ -15,9 +15,9 @@ git config --global user.email evanferrao@gmail.com
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all) || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 
 
-git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_device_xiaomi_lava.git -b eleven-permissive device/xiaomi/lava && git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_kernel_xiaomi_mt6768.git -b eleven kernel/xiaomi/mt6768 && git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_vendor_xiaomi_lava.git -b eleven vendor/xiaomi/lava
+git clone --depth=1 --single-branch https://github.com/boxboi689/device_xiaomi_lava.git -b ancient device/xiaomi/lava && git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_kernel_xiaomi_mt6768.git -b eleven kernel/xiaomi/mt6768 && git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_vendor_xiaomi_lava.git -b eleven vendor/xiaomi/lava
 
-cd device/xiaomi/lava && rm -rf aosp_lava.mk AndroidProducts.mk && wget https://mirror.cryllicbuster273.me/lineage_lava.mk && wget https://mirror.cryllicbuster273.me/AndroidProducts.mk
+
 # mt6768 autopatcher by henloboi 202103040948 GMT+0
 
 pfwb() {
