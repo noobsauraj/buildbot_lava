@@ -12,7 +12,7 @@ task:
       cpu: 16
       memory: 52G
     download_ccache_script:
-      - sudo ./download_ccache
+      - bash download_ccache
     sync_script:
       - ./sync
     build_script:
