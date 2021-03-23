@@ -1,10 +1,10 @@
 #!/bin/bash
 
-url=https://ghostmirror.hitesh920.workers.dev/part1.tar.gz
+url=https://mirror.cryllicbuster273.me/sakura-ccache.tar.gz
 
 cd /tmp # Where to download cccahe
 time aria2c $url -x16 -s50
 echo "dl done"
-time tar xf part1.tar.gz
+time tar xf sakura-ccache.tar.gz
 echo "unzip done"
-find part1.tar.gz -delete
+find sakura-ccache.tar.gz -dele
