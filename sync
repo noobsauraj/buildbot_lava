@@ -13,10 +13,12 @@ git config --global user.email evanferrao@gmail.com
 
 # Sync source with -q, no need unnecessary messages, you can remove -q if want! try with -j30 first, if fails, it will try again with -j8
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all) || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
-
+pwd
 
 git clone --depth=1 --single-branch https://github.com/boxboi689/device_xiaomi_lava.git -b ancient device/xiaomi/lava && git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_kernel_xiaomi_mt6768.git -b eleven kernel/xiaomi/mt6768 && git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_vendor_xiaomi_lava.git -b eleven vendor/xiaomi/lava
-
+pwd
+cd /tmp/rom
+pwd
 
 # mt6768 autopatcher by henloboi 202103040948 GMT+0
 
@@ -38,16 +40,17 @@ mtkr() {
     git clone --depth=1 --single-branch https://github.com/PixelExperience/vendor_mediatek-opensource vendor/mediatek/opensource
     git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_vendor_mediatek_ims vendor/mediatek/ims 
 }
-
-cd $ROOTDIR 
+pwd
+cd /tmp/rom
 pfwb
-cd $ROOTDIR 
+cd /tmp/rom
 pims 
-cd $ROOTDIR 
+cd /tmp/rom
 pwifi 
-cd $ROOTDIR 
-mtkr 
-cd $ROOTDIR
+cd /tmp/rom
+mtkr
+cd /tmp/rom
 
 echo "patch done !"
+pwd
 
