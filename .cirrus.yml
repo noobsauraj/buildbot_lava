@@ -14,8 +14,8 @@ task:
     download_ccache_script:
       - bash download_ccache
     sync_script:
-      - ./sync
+      - bash sync
     build_script:
-      - ./build
+      - bash build
     upload_ccache_script:
-      - ./upload_ccache
+      - bash upload_ccache
