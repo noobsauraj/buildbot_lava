@@ -7,4 +7,4 @@ time aria2c $url -x16 -s50
 echo "dl done"
 time tar xf sakura-ccache.tar.gz
 echo "unzip done"
-find sakura-ccache.tar.gz -dele
+find sakura-ccache.tar.gz -delete
