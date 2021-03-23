@@ -1,0 +1,34 @@
+#!/bin/bash
+cd /tmp/rom # Depends on where source got synced
+rm -rf .repo & # lets remove unnecessary things, so that no storage issue can occur
+
+# Normal build steps
+. build/envsetup.sh
+lunch lighthouse_miatoll-userdebug
+export CCACHE_DIR=/tmp/ccache
+export CCACHE_EXEC=$(which ccache)
+export USE_CCACHE=1
+ccache -M 20G
+ccache -o compression=true
+ccache -z
+
+up(){
+	curl --upload-file $1 https://transfer.sh/
+}
+
+make_metalava(){
+	mka api-stubs-docs
+	mka system-api-stubs-docs
+	mka test-api-stubs-docs
+}
+
+make_rom(){
+	make bacon -j20
+	zip=$(up out/target/product/miatoll/*zip)
+	echo " "
+	echo "$zip"
+}
+
+make_metalava
+make_rom &
+sleep 5200 && kill "$!"
