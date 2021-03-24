@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt install wget
-MANIFEST=git://github.com/ProjectSakura/android.git
-BRANCH=11
+MANIFEST=https://github.com/NezukoOS/manifest
+BRANCH=eleven
 
 mkdir -p /tmp/rom
 cd /tmp/rom
@@ -15,7 +15,9 @@ git config --global user.email evanferrao@gmail.com
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all) || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 pwd
 
-git clone --depth=1 --single-branch https://github.com/Box-boi/android_device_xiaomi_lava.git -b eleven device/xiaomi/lava && git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_kernel_xiaomi_mt6768.git -b eleven kernel/xiaomi/mt6768 && git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_vendor_xiaomi_lava.git -b eleven vendor/xiaomi/lava
+git clone --depth=1 --single-branch https://github.com/Box-boi/android_device_xiaomi_lava.git -b eleven device/xiaomi/lava 
+git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_kernel_xiaomi_mt6768.git -b eleven kernel/xiaomi/mt6768
+git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_vendor_xiaomi_lava.git -b eleven vendor/xiaomi/lava
 pwd
 cd /tmp/rom
 pwd
