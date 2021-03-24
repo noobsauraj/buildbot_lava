@@ -4,6 +4,7 @@ rm -rf .repo &
 
 source build/envsetup.sh
 lunch lineage_lava-userdebug
+export CIPHER_OFFICIAL=true
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
