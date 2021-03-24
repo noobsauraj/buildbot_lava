@@ -22,7 +22,7 @@ git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_vend
 pwd
 cd /tmp/rom
 pwd
-cd /device/xiaomi/lava 
+cd device/xiaomi/lava
 echo >> lineage_lava.mk TARGET_SUPPORTS_FACE_UNLOCK=true
 echo >> system.prop ro.cipher.maintainer=Box_Boi
 
