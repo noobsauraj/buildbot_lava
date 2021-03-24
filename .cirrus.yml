@@ -13,8 +13,8 @@ task:
       memory: 52G
     download_ccache_script:
       - bash download_ccache
-    #sync_script:
-      #- bash sync
+    sync_script:
+      - bash sync
     build_script:
       - bash build
     upload_ccache_script:
