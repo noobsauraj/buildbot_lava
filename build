@@ -4,6 +4,8 @@ rm -rf .repo &
 
 source build/envsetup.sh
 lunch aosp_lava-userdebug
+export NEZUKO_BUILD_TYPE=OFFICIAL
+export NEZUKO_MAINTAINER=Box_Boi
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
