@@ -16,7 +16,7 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 pwd
 
 git clone --depth=1 --single-branch https://github.com/Box-boi/android_device_xiaomi_lava.git -b lineage-18.1 device/xiaomi/lava && git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_kernel_xiaomi_mt6768.git -b eleven kernel/xiaomi/mt6768 && git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_vendor_xiaomi_lava.git -b eleven vendor/xiaomi/lava
-git clone https://github.com/AtomicXZ/vendor_xiaomi_miuicamera -b master vendor/xiaomi/miuicamera
+git clone https://github.com/henloscape/memecam.git vendor/xiaomi/miuicamera
 
 pwd
 cd /tmp/rom
