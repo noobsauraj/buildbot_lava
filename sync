@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo apt install wget
-MANIFEST=https://github.com/NezukoOS/manifest
+MANIFEST=https://github.com/HyconOS/manifest
 BRANCH=eleven
 
 mkdir -p /tmp/rom
