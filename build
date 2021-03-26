@@ -2,6 +2,12 @@
 cd /tmp/rom # Depends on where source got synced
 rm -rf .repo & # lets remove unnecessary things, so that no storage issue can occur
 
+#reverting patches
+cd frameworks/opt/net/wifi && git reset --hard
+cd /tmp/rom
+cd frameworks/base && git reset --hard
+cd /tmp/rom
+
 # Normal build steps
 source build/envsetup.sh
 lunch lineage_lava-userdebug
