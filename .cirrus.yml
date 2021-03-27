@@ -1,3 +1,4 @@
+
 env: # Environt variable to pass to all tasks
     CIRRUS_CLONE_DEPTH: 1 # No need to clone with whole history
     CIRRUS_WORKING_DIR: "/tmp/ci" # Where to clone repo
@@ -9,7 +10,7 @@ task:
     container:
       image: apon77/aosp:latest
       cpu: 16
-      memory: 52G
+      memory: 30G
     download_ccache_script:
       - bash download_ccache
     sync_script:
@@ -18,4 +19,3 @@ task:
       - bash build
     upload_ccache_script:
       - bash upload_ccache
-#make build
