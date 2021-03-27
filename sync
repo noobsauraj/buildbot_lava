@@ -15,8 +15,9 @@ git config --global user.email evanferrao@gmail.com
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all) || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 pwd
 
-git clone --depth=1 --single-branch https://github.com/Box-boi/android_device_xiaomi_lava.git -b lineage-18.1 device/xiaomi/lava && git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_kernel_xiaomi_mt6768.git -b eleven kernel/xiaomi/mt6768 && git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_vendor_xiaomi_lava.git -b eleven vendor/xiaomi/lava
+git clone --depth=1 --single-branch https://github.com/Box-boi/android_device_xiaomi_lava.git -b lineage-18.1 device/xiaomi/lava && git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_vendor_xiaomi_lava.git -b eleven vendor/xiaomi/lava
 git clone https://github.com/henloscape/memecam.git vendor/xiaomi/miuicamera
+cd /tmp/rom
 git clone --depth=1 --single-branch https://github.com/PixelExperience/device_mediatek_sepolicy device/mediatek/sepolicy 
 git clone --depth=1 --single-branch https://github.com/PixelExperience/vendor_mediatek_interfaces vendor/mediatek/interfaces 
 git clone --depth=1 --single-branch https://github.com/PixelExperience/vendor_mediatek-opensource vendor/mediatek/opensource
@@ -25,4 +26,7 @@ pwd
 cd /tmp/rom
 pwd
 df -h
+ls device/xiaomi/lava
+df -h
+ls
 
