@@ -1,10 +1,6 @@
 #!/bin/bash
 cd /tmp/rom # Depends on where source got synced
 rm -rf .repo & # lets remove unnecessary things, so that no storage issue can occur
-
-
-
-
 # Normal build steps
 source build/envsetup.sh
 lunch lineage_lava-userdebug
@@ -20,19 +16,16 @@ export USE_CCACHE=1
 ccache -M 20G
 ccache -o compression=true
 ccache -z
-
 up(){
 	curl --upload-file $1 https://transfer.sh/
 }
-
 make_metalava(){
 	mka api-stubs-docs
 	mka system-api-stubs-docs
 	mka test-api-stubs-docs
 }
-
 make_rom(){
-	make bacon -j16
+	make bacon -j20
 	zip=$(up out/target/product/lava/*zip)
 	echo " "
 	echo "$zip"
