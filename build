@@ -4,11 +4,7 @@ rm -rf .repo & # lets remove unnecessary things, so that no storage issue can oc
 # Normal build steps
 source build/envsetup.sh
 lunch lineage_lava-userdebug
-cd frameworks/opt/net/wifi && git reset --hard
-cd /tmp/rom
-cd frameworks/base && git reset --hard
-cd /tmp/rom
-cd frameworks/opt/net/ims && git reset --hard
+export CIPHER_OFFICIAL=true
 cd /tmp/rom
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
@@ -25,12 +21,12 @@ make_metalava(){
 	mka test-api-stubs-docs
 }
 make_rom(){
-	make bacon -j20
+	make bacon -j16
 	zip=$(up out/target/product/lava/*zip)
 	echo " "
 	echo "$zip"
 }
 
 make_metalava
-make_rom &
-sleep 5200 && kill "$!"
+make_rom
+
