@@ -15,10 +15,12 @@ git config --global user.email evanferrao@gmail.com
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all) || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 pwd
 
-git clone --depth=1 --single-branch https://github.com/Box-boi/android_device_xiaomi_lava.git -b eleven device/xiaomi/lava 
+git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_device_xiaomi_merlin.git -b eleven device/xiaomi/lava 
 git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_vendor_xiaomi_lava.git -b eleven vendor/xiaomi/lava
 git clone https://github.com/henloscape/memecam.git vendor/xiaomi/miuicamera
 pwd
+cd device/xiaomi/lava && sed -i s/aosp/lineage/g AndroidProducts.mk && sed -i s/aosp/lineage/g aosp_lava.mk && mv aosp_merlin.mk lineage_lava.mk && cd ../../..
+cd device/xiaomi/lava && echo 'TARGET_USES_FACE_UNLOCK := true' >> aosp_lava.mk && cd overlay/packages/apps/Settings/res/values && echo <string name="hycon_maintainer">Box_Boi</string>
 cd /tmp/rom
 pwd
 
