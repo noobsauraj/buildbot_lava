@@ -3,7 +3,7 @@ cd /tmp/rom
 rm -rf .repo &
 
 source build/envsetup.sh
-lunch
+lunch aosp_lava-userdebug
 export TARGET_PREBUILT_KERNEL:=/tmp/rom/device/xiaomi/lava/prebuilt/Image.gz-dtb
 export HYCON_BUILD_TYPE=OFFICIAL
 export TARGET_USES_FACE_UNLOCK=true
