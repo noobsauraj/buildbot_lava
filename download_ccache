@@ -7,3 +7,4 @@ echo "dl done"
 time tar xf gay7.tar.gz
 echo "unzip done"
 find gay7.tar.gz -delete
+#
