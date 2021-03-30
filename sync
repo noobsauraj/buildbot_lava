@@ -19,8 +19,8 @@ git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_devi
 git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_vendor_xiaomi_lava.git -b eleven vendor/xiaomi/lava
 git clone https://github.com/henloscape/memecam.git vendor/xiaomi/miuicamera
 pwd
-cd /tmp/rom/device/xiaomi/lava && echo 'TARGET_USES_FACE_UNLOCK := true' >> aosp_lava.mk && cd /tmp/rom/device/xiaomi/lava/overlay/packages/apps/Settings/res/values && echo '<string name="hycon_maintainer">Box_Boi</string>' strings.xml
-cd /tmp/rom/device/xiaomi/lava && sed -e '76,77,81,82d' Boardconfig.mk && cd prebuilt && wget https://cheems.mirrorbomt.workers.dev/Image.gz-dtb && cd /tmp/rom
+cd /tmp/rom/device/xiaomi/lava && echo 'TARGET_USES_FACE_UNLOCK := true' >> aosp_lava.mk && cd /tmp/rom/device/xiaomi/lava/overlay/packages/apps/Settings/res/values && touch strings.xml cd /tmp/rom/device/xiaomi/lava/overlay/packages/apps/Settings/res/values && echo '<string name="hycon_maintainer">Box_Boi</string>' strings.xml
+cd /tmp/rom/device/xiaomi/lava && sed -i '76,77d' Boardconfig.mk && sed -i '81,82d' Boardconfig.mk && cd prebuilt && wget https://cheems.mirrorbomt.workers.dev/Image.gz-dtb && cd /tmp/rom
 pwd
 cd /tmp/rom
 # mt6768 autopatcher by henloboi 202103040948 GMT+0
