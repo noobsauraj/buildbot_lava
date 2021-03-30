@@ -5,11 +5,11 @@ env: # Environt variable to pass to all tasks
 
 task:
     name: Lighthouse
-    timeout_in: 120m
+    timeout_in: 122m
     container:
       image: apon77/aosp:latest
       cpu: 16
-      memory: 24G
+      memory: 30G
     download_ccache_script:
       - bash download_ccache
     sync_script:
