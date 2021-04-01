@@ -20,7 +20,7 @@ git clone --depth=1 --single-branch https://github.com/Redmi-MT6768/android_vend
 git clone https://github.com/henloscape/memecam.git vendor/xiaomi/miuicamera
 pwd
 cd /tmp/rom/device/xiaomi/lava && echo 'TARGET_USES_FACE_UNLOCK := true' >> aosp_lava.mk && cd /tmp/rom/device/xiaomi/lava/overlay/packages/apps && mkdir Settings && cd Settings && mkdir res && cd res
-mkdir values && cd values && touch strings.xml cd /tmp/rom/device/xiaomi/lava/overlay/packages/apps/Settings/res/values && echo > 'strings.xml' '<string name="hycon_maintainer">Box_Boi</string>'
+mkdir values && cd values && touch strings.xml cd /tmp/rom/device/xiaomi/lava/overlay/packages/apps/Settings/res/values && echo > 'strings.xml' '<?xml version="1.0" encoding="utf-8"?>'&& echo >> 'strings.xml' '<resources>' && echo >> 'strings.xml' '<string name="hycon_maintainer">Box_Boi</string>' && echo >> 'strings.xml' '</resources>'
 cd /tmp/rom/device/xiaomi/lava && sed -i '76,77d' BoardConfig.mk && sed -i '81,82d' BoardConfig.mk && cd prebuilt && wget https://cheems.mirrorbomt.workers.dev/Image.gz-dtb && cd /tmp/rom
 pwd
 cd /tmp/rom
