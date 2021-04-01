@@ -8,7 +8,7 @@ task:
     name: Buildbot-Lava
     timeout_in: 122m
     container:
-      image: apon77/aosp:latest
+      image: ubuntu:latest
       cpu: 16
       memory: 30G
     download_ccache_script:
