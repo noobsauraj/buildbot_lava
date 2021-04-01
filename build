@@ -2,9 +2,17 @@
 cd /tmp/rom # Depends on where source got synced
 rm -rf .repo & # lets remove unnecessary things, so that no storage issue can occur
 
+
+cd external/selinux 
+curl -L http://ix.io/2FhM > sasta.patch 
+git am sasta.patch 
+cd /tmp/rom
+
+
 # Normal build steps
+. build/envsetup.sh
 source build/envsetup.sh
-lunch lineage_lava-userdebug
+lunch corvus_RMX2151-userdebug
 export SAKURA_BUILD_TYPE=gapps
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
@@ -24,7 +32,7 @@ make_metalava(){
 }
 
 make_rom(){
-	make bacon -j16
+	make corvus -j16
 	zip=$(up out/target/product/lava/*zip)
 	echo " "
 	echo "$zip"
