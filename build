@@ -12,6 +12,7 @@ cd /tmp/rom
 
 # Normal build steps
 . build/envsetup.sh
+lunch octavi_RMX2151-userdebug
 export SAKURA_BUILD_TYPE=gapps
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
@@ -31,7 +32,7 @@ make_metalava(){
 }
 
 make_rom(){
-	brunch
+	brunch RMX2151
 	zip=$(up out/target/product/lava/*zip)
 	echo " "
 	echo "$zip"
